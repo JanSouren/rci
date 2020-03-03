@@ -16,6 +16,12 @@ rci(df, pretest, posttest)
   \item{df}{
 Takes a data frame object
 }
+  \item{pretest}{
+  Takes a column name, using "" brackets
+  }
+  \item{posttest}{
+  Takes a column name, using "" brackets
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -43,14 +49,12 @@ Takes a data frame object
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+# Data frame containing of Pre-test and Post-test columns
+set.seed(5)
+df <- data.frame(ID = c("AAA", "BBB", "CCC", "DDD", "EEE"), W1 = rnorm(5), W2 = rnorm(5))
 
-## The function is currently defined as
-function (x)
-{
-  }
+# Input the data frame, Pre-test column, and Post-test columns as arguments, respectively
+rci(df, "W1", "W2")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
