@@ -21,14 +21,23 @@ rci <- function(df, pretest, posttest) {
     stop("Post-test scores are missing")
   }
 
+  # Compute the numerator. Subtract pre-test scores from post-test scores
   numerator <- ifelse(is.na(df[, pretest]) | is.na(df[, posttest]),
                       NA, df[, posttest] - df[, pretest])
 
+  # Compute the test-retest reliability score. Use pairwise deletion
   test_retest <- cor(df[, pretest], df[, posttest],
                      use = "pairwise.complete.obs")
 
+  # Compute the denominator from the standard deviation from the pre-test
+  # scores multiplied by the square root of 1 - test-retest reliability
   denominator <- sd(df[, pretest], na.rm = TRUE) * sqrt(1 - test_retest)
 
+  # Compute the RCI and name the newly created variable by appending
+  # "_RCI" to the post-test column name
   df[, paste0(posttest, "_RCI")] <- round(numerator/denominator, 2)
+
+  # Return the original data frame together with the newly created
+  # RCI variable
   return(df)
 }
