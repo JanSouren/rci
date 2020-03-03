@@ -4,7 +4,7 @@
 # function creates a new column for the RCI, merges it with the input data
 # frame, and returns it back to the user. The function produces NAs for cases
 # that has at least 1 NA value in either the pretest or the posttest column
-RCI <- function(df, pretest, posttest) {
+rci <- function(df, pretest, posttest) {
 
   # Test for missing dataset argument
   if(missing(df)) {

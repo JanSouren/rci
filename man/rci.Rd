@@ -13,8 +13,8 @@ rci(df, pretest, posttest)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
+  \item{df}{
+Takes a data frame object
 }
 }
 \details{
