@@ -26,9 +26,6 @@ rci <- function(df, pretest, posttest) {
   if (!is.data.frame(df)) {
     df <- as.data.frame(df)
     }
-  else {
-    df
-  }
 
   # Compute the numerator. Subtract pre-test scores from post-test scores
   numerator <- ifelse(is.na(df[, pretest]) | is.na(df[, posttest]),
