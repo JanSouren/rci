@@ -7,18 +7,27 @@
 rci <- function(df, pretest, posttest) {
 
   # Test for missing dataset argument
-  if(missing(df)) {
+  if (missing(df)) {
     stop("Dataset is missing")
   }
 
   # Test for missing pre-test scores argument
-  if(missing(pretest)) {
+  if (missing(pretest)) {
     stop("Pre-test scores are missing")
   }
 
   # Test for missing post-test scores argument
-  if(missing(posttest)) {
+  if (missing(posttest)) {
     stop("Post-test scores are missing")
+  }
+
+  # Test whether the df object is a data frame. If not, coerce it into a
+  # data frame
+  if (!is.data.frame(df)) {
+    df <- as.data.frame(df)
+    }
+  else {
+    df
   }
 
   # Compute the numerator. Subtract pre-test scores from post-test scores
