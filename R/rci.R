@@ -50,4 +50,34 @@ rci <- function(df, pretest, posttest, method = "JT") {
     # RCI variable
     return(df)
   }
+
+  # If method is "CM" (Christensen & Mendoza, 1986)
+  else if (method == "CM") {
+
+    # Compute the numerator. Subtract pre-test scores from post-test scores
+    numerator <- ifelse(is.na(df[, pretest]) | is.na(df[, posttest]),
+                        NA, df[, posttest] - df[, pretest])
+
+    # Compute the test-retest reliability score. Use pairwise deletion
+    test_retest <- cor(df[, pretest], df[, posttest],
+                       use = "pairwise.complete.obs")
+
+    # Compute the denominator from the square root of the sum of the variance
+    # of the pre-test scores and the variance of the post-test scores minus
+    # 2 multiplied with the standard deviation of the pre-test scores
+    # multiplied with the standard deviation of the post-test scores
+    # multiplied by the test-retest reliability
+    denominator <- sqrt(var(df[, pretest], na.rm = TRUE) +
+                          var(df[, posttest], na.rm = TRUE) - (2 *
+                          sd(df[, pretest], na.rm = TRUE) *
+                          sd(df[, posttest], na.rm = TRUE) * test_retest))
+
+    # Compute the RCI and name the newly created variable by appending
+    # "_RCI" to the post-test column name
+    df[, paste0(posttest, "_RCI")] <- round(numerator/denominator, 2)
+
+    # Return the original data frame together with the newly created
+    # RCI variable
+    return(df)
+  }
 }
