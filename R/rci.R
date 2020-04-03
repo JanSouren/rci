@@ -4,7 +4,7 @@
 # function creates a new column for the RCI, merges it with the input data
 # frame, and returns it back to the user. The function produces NAs for cases
 # that has at least 1 NA value in either the pretest or the posttest column
-rci <- function(df, pretest, posttest, type = "JT") {
+rci <- function(df, pretest, posttest, method = "JT") {
 
   # Test for missing dataset argument
   if (missing(df)) {
@@ -25,25 +25,29 @@ rci <- function(df, pretest, posttest, type = "JT") {
   # data frame
   if (!is.data.frame(df)) {
     df <- as.data.frame(df)
-    }
+  }
 
-  # Compute the numerator. Subtract pre-test scores from post-test scores
-  numerator <- ifelse(is.na(df[, pretest]) | is.na(df[, posttest]),
-                      NA, df[, posttest] - df[, pretest])
+  # If method is "JT" (Jacobson & Truax, 1991)
+  if (method == "JT") {
 
-  # Compute the test-retest reliability score. Use pairwise deletion
-  test_retest <- cor(df[, pretest], df[, posttest],
-                     use = "pairwise.complete.obs")
+    # Compute the numerator. Subtract pre-test scores from post-test scores
+    numerator <- ifelse(is.na(df[, pretest]) | is.na(df[, posttest]),
+                        NA, df[, posttest] - df[, pretest])
 
-  # Compute the denominator from the standard deviation from the pre-test
-  # scores multiplied by the square root of 1 - test-retest reliability
-  denominator <- sd(df[, pretest], na.rm = TRUE) * sqrt(1 - test_retest)
+    # Compute the test-retest reliability score. Use pairwise deletion
+    test_retest <- cor(df[, pretest], df[, posttest],
+                       use = "pairwise.complete.obs")
 
-  # Compute the RCI and name the newly created variable by appending
-  # "_RCI" to the post-test column name
-  df[, paste0(posttest, "_RCI")] <- round(numerator/denominator, 2)
+    # Compute the denominator from the standard deviation from the pre-test
+    # scores multiplied by the square root of 1 - test-retest reliability
+    denominator <- sd(df[, pretest], na.rm = TRUE) * sqrt(1 - test_retest)
 
-  # Return the original data frame together with the newly created
-  # RCI variable
-  return(df)
+    # Compute the RCI and name the newly created variable by appending
+    # "_RCI" to the post-test column name
+    df[, paste0(posttest, "_RCI")] <- round(numerator/denominator, 2)
+
+    # Return the original data frame together with the newly created
+    # RCI variable
+    return(df)
+  }
 }
