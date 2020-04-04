@@ -80,4 +80,6 @@ rci <- function(df, pretest, posttest, method = "JT") {
     # RCI variable
     return(df)
   }
+
+  # If method is
 }
