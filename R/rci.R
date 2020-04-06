@@ -21,11 +21,8 @@ rci <- function(df, pretest, posttest, method = "JT") {
     stop("Post-test scores are missing")
   }
 
-  # Test whether the df object is a data frame. If not, coerce it into a
-  # data frame
-  if (!is.data.frame(df)) {
-    df <- as.data.frame(df)
-  }
+  # Coerce df argument input into a data frame
+  df <- as.data.frame(df)
 
   # If method is "JT" (Jacobson & Truax, 1991)
   if (method == "JT") {
