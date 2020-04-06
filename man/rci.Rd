@@ -9,7 +9,7 @@
 Computes the Reliable Change Index for the two columns specified
 }
 \usage{
-rci(df, pretest, posttest)
+rci(df, pretest, posttest, method)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,6 +21,12 @@ Takes a data frame object
   }
   \item{posttest}{
   Takes a column name, using "" brackets
+  }
+  \item{method}{
+  Takes 1 of 5 methods computing the RCI: (a) Jacobson & Truax, 1991,
+  (b) Christensen & Mendoza, 1986, (c) Iverson et al., 2003,
+  (d) Lewis et al., 2007 [work in progress], or (e) McSweeney et al., 1993.
+  If unspecified, default is Jacobson & Truax, 1991
   }
 }
 \details{
