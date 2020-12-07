@@ -1,3 +1,23 @@
+#' Computes Reliable Change Index (RCI)
+#'
+#' This function computes the Reliable Change Index (RCI) for a given psychometric instrument across 2 measurement points
+#'
+#' @param df Data Frame
+#' @param pretest Column Name of Pre-test scores
+#' @param posttest Column Name of Post-test score
+#' @param method RCI Formula to use
+#'
+#' @return Original Data Frame with newly added column containing RCI scores
+#'
+#' @examples
+#' # Data frame containing of Pre-test and Post-test columns
+#' set.seed(5)
+#' df <- data.frame(ID = c("AAA", "BBB", "CCC", "DDD", "EEE"), W1 = rnorm(5), W2 = rnorm(5))
+#' # Input the data frame, Pre-test column, and Post-test columns as arguments, respectively
+#' rci(df, "W1", "W2")
+#'
+#' @export
+
 # Create a function that is used to compute the Reliable Change Index (RCI)
 # The function takes in 3 inputs: (a) a data frame, (b) name of the pretest
 # column (in quotes), and (c) name of the posttest column (in quotes). The
