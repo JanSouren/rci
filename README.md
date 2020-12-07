@@ -14,8 +14,8 @@ The `rci` function takes in four arguments: (1) a data frame, (2) column contain
 
 The formulas are:
 
-* *JT*: Jacobson & Truax, 1991
-* *CM*: Christensen & Mendoza, 1986
-* *I*: Iverson et al., 2003
-* *L*: Lewis et al., 2007
-* *M*: McSweeney et al., 1993
+* **JT**: Jacobson & Truax, 1991
+* **CM**: Christensen & Mendoza, 1986
+* **I**: Iverson et al., 2003
+* **L**: Lewis et al., 2007
+* **M**: McSweeney et al., 1993
