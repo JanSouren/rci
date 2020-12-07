@@ -10,14 +10,14 @@ devtools::install_github("dtyk/rci")
 ```
 
 ## Usage
-The `rci` function takes in four arguments: (1) a data frame, (2) column containing pre-test scores, (3) column containing post-test scores, and (4) the RCI formula to be used.
+The `rci` function takes in four arguments: (1) a data frame, (2) column containing pre-test scores, (3) column containing post-test scores, and (4) the RCI formula to be used. If no formula is provided, the Jacobson & Truax (1991) formula will be used.
 
 The formulas are:
 
 | Formula | Article                | Description|
 |---------|------------------------|------------|
-| **JT**  | Jacobson & Truax, 1991 | The SEM of the difference score, when variances are equal |
+| **JT**  | Jacobson & Truax, 1991 | The standard error of measurement of the difference score, when variances are equal |
 | **CM**  | Christensen & Mendoza, 1986 | The standard deviation of difference scores |
-| **I**   | Iverson et al., 2003 | The SEM of the difference score |
-| **L**   | Lewis et al., 2007   | The Within-subjects standard deviation |
+| **I**   | Iverson et al., 2003 | The standard error of measurement of the difference score |
+| **L**   | Lewis et al., 2007   | The within-subjects standard deviation |
 | **M**   | McSweeney et al., 1993 | The standard deviation of the least-squares regression residuals |
