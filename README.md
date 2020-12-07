@@ -14,8 +14,10 @@ The `rci` function takes in four arguments: (1) a data frame, (2) column contain
 
 The formulas are:
 
-* **JT**: Jacobson & Truax, 1991
-* **CM**: Christensen & Mendoza, 1986
-* **I**: Iverson et al., 2003
-* **L**: Lewis et al., 2007
-* **M**: McSweeney et al., 1993
+| Formula | Article                | Description|
+|---------|------------------------|------------|
+| **JT**  | Jacobson & Truax, 1991 | The SEM of the difference score, when variances are equal |
+| **CM**  | Christensen & Mendoza, 1986 | The standard deviation of difference scores |
+| **I**   | Iverson et al., 2003 | The SEM of the difference score |
+| **L**   | Lewis et al., 2007   | The Within-subjects standard deviation |
+| **M**   | McSweeney et al., 1993 | The standard deviation of the least-squares regression residuals |
