@@ -41,6 +41,11 @@ rci <- function(df, pretest, posttest, method = "JT") {
     stop("Post-test scores are missing")
   }
 
+  # Use num_check to ensure both pre-test and post-test
+  # variables are numeric before continuing
+  num_check(df, pretest)
+  num_check(df, posttest)
+
   # Coerce df argument input into a data frame
   df <- as.data.frame(df)
 
