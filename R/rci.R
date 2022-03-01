@@ -140,7 +140,7 @@ rci <- function(df, pretest, posttest, method = "JT") {
     numerator <- ifelse(is.na(df[, pretest]) | is.na(df[, posttest]),
                         NA, df[, posttest] - df[, pretest])
 
-
+    # CODE IS MISSING !!!
 
 
   }
